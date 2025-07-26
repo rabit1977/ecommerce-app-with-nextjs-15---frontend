@@ -1,9 +1,9 @@
 'use client';
 import { useApp } from '@/context/AppContext';
 import { getThemeClasses } from '@/lib/theme';
-import { Product } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Product } from '../../../types';
 import AddToCartButton from './AddToCartButton';
 import StarRating from './StarRating';
 

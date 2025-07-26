@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --color-background-light: 249 250 251; /* gray-50 */
   --color-background-secondary-light: 229 231 235; /* gray-200 */

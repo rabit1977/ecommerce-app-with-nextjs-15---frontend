@@ -1,7 +1,7 @@
 'use client';
 import { useApp } from '@/context/AppContext';
-import { CartItem as CartItemType } from '@/types';
 import Image from 'next/image';
+import { CartItem as CartItemType } from '../../../types';
 
 interface CartItemProps {
   item: CartItemType;

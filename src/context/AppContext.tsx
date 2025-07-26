@@ -1,6 +1,5 @@
 'use client';
 import { initialProducts } from '@/lib/data';
-import { CartItem, Comment, Product, User } from '@/types';
 import React, {
   createContext,
   ReactNode,
@@ -8,6 +7,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import { CartItem, Comment, Product, User } from '../../types';
 
 interface AppContextType {
   products: Product[];

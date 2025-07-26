@@ -1,8 +1,8 @@
 'use client';
 import { useApp } from '@/context/AppContext';
 import { getThemeClasses } from '@/lib/theme';
-import { Product } from '@/types';
 import { useState } from 'react';
+import { Product } from '../../../types';
 
 interface AddToCartButtonProps {
   product: Product;
