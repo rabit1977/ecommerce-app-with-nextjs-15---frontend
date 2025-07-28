@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from 'react';
+import React, { useId } from 'react';
 
 interface StarRatingProps {
     rating: number;
@@ -7,7 +7,7 @@ interface StarRatingProps {
 }
 
 export default function StarRating({ rating, className = '' }: StarRatingProps) {
-    const uniqueId = useMemo(() => `grad-${Math.random().toString(36).substr(2, 9)}`, []);
+    const uniqueId = useId();
     const stars = [];
     for (let i = 1; i <= 5; i++) {
         if (i <= rating) {

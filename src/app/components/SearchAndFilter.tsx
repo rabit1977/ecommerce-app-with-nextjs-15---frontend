@@ -46,7 +46,7 @@ const SearchAndFilter = () => {
             ></path>
           </svg>
         </div>
-        <div className='flex-shrink-0'>
+        <div className='flex-shrink-0 relative'>
           <select
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
