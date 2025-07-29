@@ -54,14 +54,17 @@ export default function ProductDetail({ productId }: ProductDetailProps) {
       >
         &larr; Back to Products
       </Link>
-      <div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden'>
-        <div className='md:flex'>
-          <div className='md:w-1/2'>
-            <Image
-              src={product.image}
-              alt={product.name}
-              className='w-full h-full object-cover'
-            />
+      <div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden '>
+        <div className='md:flex '>
+          <div className=' md:w-1/2'>
+            <div className='relative w-full h-full'>
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className='object-cover'
+              />
+            </div>
           </div>
           <div className='md:w-1/2 p-8 flex flex-col'>
             <h2 className='text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2'>

@@ -46,7 +46,8 @@ export default function Hero() {
                   src={p.image}
                   alt={p.name}
                   fill
-                  className='w-full h-full object-cover'
+                  priority
+                  className='object-cover'
                 />
               </div>
             ))}

@@ -38,12 +38,14 @@ export default function Wishlist() {
             key={item.id}
             className='bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden'
           >
-            <Image
-              src={item.image}
-              alt={item.name}
-              fill
-              className='w-full h-48 object-cover'
-            />
+            <div className='relative w-full h-56 overflow-hidden'>
+              <Image
+                src={item.image}
+                alt={item.name}
+                fill
+                className='object-cover'
+              />
+            </div>
             <div className='p-4'>
               <h3 className='font-semibold truncate text-gray-800 dark:text-gray-200'>
                 {item.name}
@@ -57,13 +59,13 @@ export default function Wishlist() {
                     addToCart(item);
                     toggleWishlist(item);
                   }}
-                  className={`w-full text-white text-sm font-bold py-2 px-3 rounded-lg transition-colors ${themeClasses.primary} ${themeClasses.primaryHover}`}
+                  className={`w-full text-white text-sm font-bold py-2 px-3 rounded-lg cursor-pointer transition-colors ${themeClasses.primary} ${themeClasses.primaryHover}`}
                 >
                   Move to Cart
                 </button>
                 <button
                   onClick={() => toggleWishlist(item)}
-                  className='p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-red-200 dark:hover:bg-red-900/50 text-red-500'
+                  className='p-2 bg-gray-200 dark:bg-gray-700 rounded-lg cursor-pointer hover:bg-red-200 dark:hover:bg-red-900/50 text-red-500'
                 >
                   <svg
                     className='w-5 h-5'

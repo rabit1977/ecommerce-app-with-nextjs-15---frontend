@@ -12,13 +12,15 @@ export default function CartItem({ item }: CartItemProps) {
 
   return (
     <div className='flex flex-col md:flex-row md:items-center md:space-x-4 py-4 border-b border-gray-200 dark:border-gray-700'>
-      <div className='flex items-center space-x-4 flex-grow'>
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          className='w-20 h-20 object-cover rounded-lg flex-shrink-0'
-        />
+      <div className='flex items-center space-x-4 flex-grow '>
+        <div className='relative w-24 h-24 flex-shrink-0'>
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className=' object-cover rounded-lg flex-shrink-0'
+          />
+        </div>
         <div>
           <h4 className='font-semibold text-gray-800 dark:text-gray-100'>
             {item.name}
@@ -51,7 +53,7 @@ export default function CartItem({ item }: CartItemProps) {
         </p>
         <button
           onClick={() => removeFromCart(item.id)}
-          className='text-red-500 hover:text-red-700'
+          className='text-red-500 hover:text-red-700 cursor-pointer'
         >
           <svg
             className='w-6 h-6'

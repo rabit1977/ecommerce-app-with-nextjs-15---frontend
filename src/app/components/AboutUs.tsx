@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function AboutUs() {
     return (
-        <div className="bg-white dark:bg-gray-800 py-12">
+        <div className="bg-white dark:bg-gray-800 pb-27 py-12 ">
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-100 mb-8">About NextGen Store</h1>
                 <div className="max-w-3xl mx-auto text-gray-700 dark:text-gray-300 space-y-6">

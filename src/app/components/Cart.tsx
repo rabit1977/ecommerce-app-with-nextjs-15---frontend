@@ -64,7 +64,7 @@ export default function Cart() {
             </Link>
             <button
               onClick={clearCart}
-              className='text-sm text-red-500 hover:underline'
+              className='text-sm text-red-500 hover:underline cursor-pointer'
             >
               Clear Cart
             </button>
@@ -93,7 +93,7 @@ export default function Cart() {
                 <span>${totalCost.toFixed(2)}</span>
               </div>
             </div>
-            <button className='mt-6 w-full bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition-colors duration-300'>
+            <button className='mt-6 w-full bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition-colors duration-300 cursor-pointer'>
               Proceed to Checkout
             </button>
           </div>

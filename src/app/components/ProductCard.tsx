@@ -18,13 +18,13 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className='bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out group flex flex-col'>
-      <div className='relative'>
+      <div className='relative w-full h-56 overflow-hidden '>
         <Link href={`/product/${product.id}`}>
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className='w-full h-56 object-cover cursor-pointer'
+            className=' object-cover cursor-pointer'
           />
         </Link>
         <div
@@ -48,7 +48,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           }`}
         >
           <svg
-            className='w-6 h-6'
+            className='w-6 h-6 cursor-pointer'
             fill={isLiked ? 'currentColor' : 'none'}
             stroke='currentColor'
             viewBox='0 0 24 24'
