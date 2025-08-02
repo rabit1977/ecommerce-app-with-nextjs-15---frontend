@@ -1,8 +1,12 @@
+// src/app/layout.tsx
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import ClientLayout from './components/ClientLayout';
 import './globals.css';
 import { AppProvider } from '@/context/AppContext';
+import { CartProvider } from '@/context/CartContext'; // Import CartProvider
+import { ThemeProvider } from '@/context/ThemeContext'; // Import ThemeProvider
+import { UserProvider } from '@/context/UserContext'; // Import UserProvider
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,9 +33,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppProvider>
-          <ClientLayout>{children}</ClientLayout>
-        </AppProvider>
+        {/* Wrap with all providers */}
+        <ThemeProvider>
+          <UserProvider>
+            <CartProvider>
+              <AppProvider> {/* AppProvider should be the innermost if it consumes other contexts */}
+                <ClientLayout>{children}</ClientLayout>
+              </AppProvider>
+            </CartProvider>
+          </UserProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

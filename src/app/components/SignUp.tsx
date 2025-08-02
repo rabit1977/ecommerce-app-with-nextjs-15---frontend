@@ -1,12 +1,14 @@
 'use client';
-import { useApp } from '@/context/AppContext';
+import { useTheme } from '@/context/ThemeContext';
+import { useUser } from '@/context/UserContext';
 import { getThemeClasses } from '@/lib/theme';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 export default function SignUp() {
-  const { login, theme } = useApp();
+  const { login } = useUser();
+  const { theme } = useTheme();
   const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

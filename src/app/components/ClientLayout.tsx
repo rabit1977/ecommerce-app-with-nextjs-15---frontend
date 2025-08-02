@@ -1,5 +1,6 @@
+// src/app/components/ClientLayout.tsx
 'use client';
-import { useApp } from '@/context/AppContext';
+import { useTheme } from '@/context/ThemeContext'; // Use useTheme
 import { ReactNode, useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
@@ -7,7 +8,7 @@ import Toast from './Toast';
 import ScrollToTopButton from './ScrollToTopButton';
 
 export default function ClientLayout({ children }: { children: ReactNode }) {
-  const { theme } = useApp();
+  const { theme } = useTheme(); // Use useTheme here
 
   useEffect(() => {
     const root = window.document.documentElement;

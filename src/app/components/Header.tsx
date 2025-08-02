@@ -1,20 +1,18 @@
 'use client';
 import { useApp } from '@/context/AppContext';
+import { useCart } from '@/context/CartContext';
+import { useTheme } from '@/context/ThemeContext';
+import { useUser } from '@/context/UserContext';
 import useOnClickOutside from '@/hooks/useOnClickOuteside';
 import { getThemeClasses, ThemeClasses } from '@/lib/theme'; // Ensure ThemeClasses is imported
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 
 const Header = () => {
-  const {
-    totalItems,
-    totalWishlistItems,
-    currentUser,
-    logout,
-    theme,
-    toggleThemeMode,
-    setThemeScheme,
-  } = useApp();
+  const { totalItems } = useCart();
+  const { totalWishlistItems } = useApp(); // Use the CartContext to get totalWishlistItems
+  const { theme, toggleThemeMode, setThemeScheme } = useTheme();
+  const { currentUser, logout } = useUser();
   const [showThemes, setShowThemes] = useState(false);
   const themeClasses: ThemeClasses = getThemeClasses(theme.scheme);
 

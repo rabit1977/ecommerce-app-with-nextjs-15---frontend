@@ -1,10 +1,12 @@
 'use client';
 import { useApp } from '@/context/AppContext';
+import { useTheme } from '@/context/ThemeContext';
 import { getThemeClasses } from '@/lib/theme';
 import Image from 'next/image';
 
 export default function Hero() {
-  const { allProducts, theme } = useApp();
+  const { allProducts } = useApp();
+  const { theme } = useTheme();
   const heroProducts = allProducts.slice(0, 4);
   const themeClasses = getThemeClasses(theme.scheme);
 

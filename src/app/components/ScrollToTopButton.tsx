@@ -1,11 +1,12 @@
 'use client';
 import { useApp } from '@/context/AppContext';
+import { useTheme } from '@/context/ThemeContext';
 import { getThemeClasses } from '@/lib/theme';
 import { useEffect, useState } from 'react';
 
 export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
-  const { theme } = useApp();
+  const { theme } = useTheme();
   const themeClasses = getThemeClasses(theme.scheme);
 
   const toggleVisibility = () => {

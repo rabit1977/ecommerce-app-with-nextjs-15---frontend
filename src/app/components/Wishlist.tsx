@@ -1,11 +1,15 @@
 'use client';
 import { useApp } from '@/context/AppContext';
+import { useCart } from '@/context/CartContext';
+import { useTheme } from '@/context/ThemeContext';
 import { getThemeClasses } from '@/lib/theme';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Wishlist() {
-  const { wishlistItems, toggleWishlist, addToCart, theme } = useApp();
+  const { wishlistItems, toggleWishlist } = useApp();
+  const { addToCart } = useCart();
+  const { theme } = useTheme();
   const themeClasses = getThemeClasses(theme.scheme);
 
   if (wishlistItems.length === 0) {

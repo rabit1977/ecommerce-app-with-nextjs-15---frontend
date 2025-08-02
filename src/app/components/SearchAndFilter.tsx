@@ -5,6 +5,7 @@ import { Search, SlidersHorizontal } from 'lucide-react';
 import { useState } from 'react';
 import { CustomDropdown } from './CustomDropdown';
 import { FilterPills } from './FilterPills';
+import { useTheme } from '@/context/ThemeContext';
 
 export const SearchAndFilter = () => {
   const {
@@ -13,7 +14,6 @@ export const SearchAndFilter = () => {
     activeCategory,
     setActiveCategory,
     allProducts,
-    theme,
     priceRange,
     setPriceRange,
     maxPrice,
@@ -22,6 +22,7 @@ export const SearchAndFilter = () => {
     stockFilter,
     setStockFilter,
   } = useApp();
+  const { theme } = useTheme(); // Use useTheme to get the current theme
 
   // Filters are now hidden by default on page load.
   const [showFilters, setShowFilters] = useState(false);

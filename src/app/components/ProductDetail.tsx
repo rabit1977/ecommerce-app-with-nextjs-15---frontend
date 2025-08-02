@@ -6,13 +6,17 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import AddToCartButton from './AddToCartButton';
 import StarRating from './StarRating';
+import { useTheme } from '@/context/ThemeContext';
+import { useUser } from '@/context/UserContext';
 
 interface ProductDetailProps {
   productId: number;
 }
 
 export default function ProductDetail({ productId }: ProductDetailProps) {
-  const { getProductById, addComment, currentUser, theme } = useApp();
+  const { getProductById, addComment } = useApp();
+  const { theme } = useTheme();
+  const { currentUser } = useUser();
   const [commentText, setCommentText] = useState('');
   const product = getProductById(productId);
   const themeClasses = getThemeClasses(theme.scheme);

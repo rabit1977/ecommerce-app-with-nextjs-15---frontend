@@ -1,14 +1,14 @@
 'use client';
-import { useApp } from '@/context/AppContext';
 import Image from 'next/image';
 import { CartItem as CartItemType } from '../../../types';
+import { useCart } from '@/context/CartContext';
 
 interface CartItemProps {
   item: CartItemType;
 }
 
 export default function CartItem({ item }: CartItemProps) {
-  const { updateQuantity, removeFromCart } = useApp();
+  const { updateQuantity, removeFromCart } = useCart();
 
   return (
     <div className='flex flex-col md:flex-row md:items-center md:space-x-4 py-4 border-b border-gray-200 dark:border-gray-700'>

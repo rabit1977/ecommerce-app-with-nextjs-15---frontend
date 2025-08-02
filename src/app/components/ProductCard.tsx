@@ -6,13 +6,15 @@ import Link from 'next/link';
 import { Product } from '../../../types';
 import AddToCartButton from './AddToCartButton';
 import StarRating from './StarRating';
+import { useTheme } from '@/context/ThemeContext';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { toggleWishlist, isInWishlist, theme } = useApp();
+  const { toggleWishlist, isInWishlist } = useApp();
+  const { theme } = useTheme();
   const isLiked = isInWishlist(product.id);
   const themeClasses = getThemeClasses(theme.scheme);
 

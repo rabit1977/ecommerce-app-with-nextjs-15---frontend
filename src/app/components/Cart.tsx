@@ -1,20 +1,27 @@
 'use client';
-import { useApp } from '@/context/AppContext';
-import { getThemeClasses } from '@/lib/theme';
+import { useCart } from '@/context/CartContext';
+import { useTheme } from '@/context/ThemeContext';
+import { useApp } from '@/context/AppContext'; // Import useApp to access displayToast
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'; // Import useRouter
 import CartItem from './CartItem';
+import { getThemeClasses } from '@/lib/theme';
 
 export default function Cart() {
-  const {
-    cartItems,
-    cartSubtotal,
-    clearCart,
-    shippingCost,
-    tax,
-    totalCost,
-    theme,
-  } = useApp();
+  const { cartItems, cartSubtotal, clearCart, shippingCost, tax, totalCost } =
+    useCart();
+  const { theme } = useTheme();
+  const { displayToast } = useApp(); // Get displayToast from useApp
   const themeClasses = getThemeClasses(theme.scheme);
+  const router = useRouter(); // Initialize useRouter
+
+  const handleProceedToCheckout = () => {
+    if (cartItems.length === 0) {
+      displayToast('Your cart is empty. Please add items before checking out.');
+      return;
+    }
+    router.push('/checkout'); // Navigate to the checkout page
+  };
 
   if (cartItems.length === 0) {
     return (
@@ -93,7 +100,10 @@ export default function Cart() {
                 <span>${totalCost.toFixed(2)}</span>
               </div>
             </div>
-            <button className='mt-6 w-full bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition-colors duration-300 cursor-pointer'>
+            <button
+              onClick={handleProceedToCheckout} // Added onClick handler
+              className='mt-6 w-full bg-green-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-600 transition-colors duration-300 cursor-pointer'
+            >
               Proceed to Checkout
             </button>
           </div>

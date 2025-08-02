@@ -1,10 +1,10 @@
 'use client';
-import { useApp } from '@/context/AppContext';
+import { useTheme } from '@/context/ThemeContext';
 import { getThemeClasses } from '@/lib/theme';
 import Link from 'next/link';
 
 const Footer = () => {
-  const { theme } = useApp();
+  const { theme } = useTheme();
   const themeClasses = getThemeClasses(theme.scheme);
 
   // A reusable style for all interactive links for consistency
